@@ -1,6 +1,7 @@
 package org.example.automationsystem;
 
 
+
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
@@ -48,6 +49,8 @@ public class RegexToolController {
         }
 
         try {
+//            Pattern pattern = Pattern.compile(patternText);
+//            Matcher matcher = pattern.matcher(text);
 
             TextProcessing pattern = new TextProcessing(patternText);
             Matcher matcher = pattern.matchSetup(text);
@@ -77,6 +80,7 @@ public class RegexToolController {
         }
     }
 
+
     private String readTextFile(File file) throws IOException {
         StringBuilder content = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
@@ -87,6 +91,7 @@ public class RegexToolController {
         }
         return content.toString();
     }
+
 
 
     public void onBrowseFile() {
@@ -158,6 +163,9 @@ public class RegexToolController {
     private void onWordFrequency() {
         analyzeWordFrequency();
     }
+
+
+
 
 
 

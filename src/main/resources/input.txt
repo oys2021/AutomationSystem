@@ -1,0 +1,3 @@
+This is a foo test.
+Another foo line.
+No match here.
