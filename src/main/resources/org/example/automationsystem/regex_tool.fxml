@@ -4,49 +4,70 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="600.0" prefWidth="700.0" spacing="10" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.automationsystem.RegexToolController">
+<VBox prefHeight="600.0" prefWidth="750.0" spacing="15"
+      style="-fx-background-color: #f4f6f8;"
+      xmlns="http://javafx.com/javafx/23.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.automationsystem.RegexToolController">
+
+    <!-- Title -->
+    <Text text="🧠 Automated Text Processor" style="-fx-fill: #2c3e50;">
+        <font>
+            <Font name="Segoe UI Semibold" size="24.0"/>
+        </font>
+    </Text>
 
     <!-- Regex Input Controls -->
     <HBox spacing="10">
-        <Label text="Regex:" />
-        <TextField fx:id="regexField" prefWidth="400" promptText="Enter regex pattern (e.g. \\d+)" />
-        <Button fx:id="runButton" onAction="#onRun" text="Run" />
-        <Button fx:id="fileButton" onAction="#onBrowseFile" text="Browse File..." />
-        <Button fx:id="clearButton" onAction="#onClear" text="Clear All" />
+        <Label text="Regex:" style="-fx-font-weight: bold;" />
+        <TextField fx:id="regexField" prefWidth="400"
+                   promptText="Enter regex pattern (e.g. \\d+)"
+                   style="-fx-background-color: #ffffff; -fx-border-color: #ccc;"/>
+        <Button fx:id="runButton" onAction="#onRun" text="Run" style="-fx-background-color: #3498db; -fx-text-fill: white;" />
+        <Button fx:id="fileButton" onAction="#onBrowseFile" text="Browse File..." style="-fx-background-color: #2ecc71; -fx-text-fill: white;" />
+        <Button fx:id="clearButton" onAction="#onClear" text="Clear All" style="-fx-background-color: #e74c3c; -fx-text-fill: white;" />
     </HBox>
 
     <!-- Input Text Area -->
-    <Label text="Input Text:" />
-    <TextArea fx:id="inputTextArea" promptText="Enter or paste text here..." wrapText="true" />
+    <Label text="Input Text:" style="-fx-font-weight: bold;" />
+    <TextArea fx:id="inputTextArea" promptText="Enter or paste text here..."
+              wrapText="true"
+              style="-fx-control-inner-background: #ffffff; -fx-border-color: #ccc;" />
 
     <!-- Replacement Controls -->
     <HBox spacing="10">
         <CheckBox fx:id="replaceCheckbox" text="Enable Replace" />
         <Label text="Replace with:" />
-        <TextField fx:id="replacementField" promptText="Replacement text" />
+        <TextField fx:id="replacementField" promptText="Replacement text"
+                   style="-fx-background-color: #ffffff; -fx-border-color: #ccc;" />
     </HBox>
 
     <!-- Results -->
-    <Label text="Results:" />
-    <TextArea fx:id="resultTextArea" editable="false" wrapText="true" promptText="Results or transformed text will appear here..." />
-    <Text fx:id="matchSummary" text="Matches: None yet" />
+    <Label text="Results:" style="-fx-font-weight: bold;" />
+    <TextArea fx:id="resultTextArea" editable="false" wrapText="true"
+              promptText="Results or transformed text will appear here..."
+              style="-fx-control-inner-background: #fdfdfd; -fx-border-color: #ccc;" />
+    <Text fx:id="matchSummary" text="Matches: None yet" style="-fx-font-style: italic; -fx-fill: #34495e;" />
 
     <!-- Additional Tools -->
     <HBox spacing="10">
-        <Button onAction="#onClearResults" text="Clear Results" />
-        <Button onAction="#onWordFrequency" text="Word Frequency" />
-        <Button onAction="#onShowStoredResults" text="Show Stored Results" />
+        <Button onAction="#onClearResults" text="Clear Results" style="-fx-background-color: #f39c12; -fx-text-fill: white;" />
+        <Button onAction="#onWordFrequency" text="Word Frequency" style="-fx-background-color: #9b59b6; -fx-text-fill: white;" />
+        <Button onAction="#onShowStoredResults" text="Show Stored Results" style="-fx-background-color: #1abc9c; -fx-text-fill: white;" />
     </HBox>
 
     <!-- Keyword-based Line Matching -->
     <HBox spacing="10">
-        <TextField fx:id="keywordField" promptText="Enter keyword to match in lines" />
-        <Button onAction="#onKeywordMatch" text="Find Keyword" />
+        <TextField fx:id="keywordField" promptText="Enter keyword to match in lines"
+                   style="-fx-background-color: #ffffff; -fx-border-color: #ccc;" />
+        <Button onAction="#onKeywordMatch" text="Find Keyword"
+                style="-fx-background-color: #34495e; -fx-text-fill: white;" />
     </HBox>
 
     <padding>
-        <Insets top="10.0" right="10.0" bottom="10.0" left="10.0" />
+        <Insets top="20.0" right="20.0" bottom="20.0" left="20.0" />
     </padding>
 </VBox>
